@@ -3,7 +3,7 @@
     "dialect": "postgres",
 		"cryptoSecret": "uoy79a8w9e43bf",
 		"username": "postgres",
-		"password": "Gq96nvNfdsFXOTf4GfoW",
+		"password": "ajsnkn",
 		"host": "chatbot.ap-south-1.rds.amazonaws.com",
 		"database": "postgres"
   }

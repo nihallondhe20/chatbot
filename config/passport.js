@@ -5,8 +5,8 @@ const JwtStrategy = passportJWT.Strategy;
 var GoogleStrategy = require("passport-google-oauth20").Strategy;
 var FacebookStrategy = require("passport-facebook").Strategy;
 
-module.exports = function (passport) {
-    const jwtOptions = {
+module.exports = function (passport){
+    const jwtOptions = { 
         jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
         secretOrKey: process.env.SECRET,
     };
@@ -26,7 +26,7 @@ module.exports = function (passport) {
             })
                 .then((user) => {
                     if (user) {
-                        // console.log(user);
+                         console.log(user);
                         done(null, user);
                     } else {
                         done(null, false);
