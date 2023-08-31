@@ -4,7 +4,7 @@
 		"cryptoSecret": "uoy79a8w9e43bf",
 		"username": "postgres",
 		"password": "Gq96nvNfdsFXOTf4GfoW",
-		"host": "chatbot.c0ispgmmyn5y.ap-south-1.rds.amazonaws.com",
+		"host": "chatbot.ap-south-1.rds.amazonaws.com",
 		"database": "postgres"
   }
   }
