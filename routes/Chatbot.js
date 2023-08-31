@@ -21,21 +21,19 @@ module.exports = function (app, sequelize, passport) {
     app.get(
         "/chatbot/all",
          bodyParser.json(),
-      //  passport.authenticate("user_rule", { session: false }),
         async (req, res) => {
             Chatbot.findAll({
-                //where: { id: 1},
                 include: [{ model: User, as: "user" }],
           
             })
-                .then((appo) => {
+                .then((chatall) => {
                     
-                    res.json ({ msg: "all user appointments", appo });
+                    res.json ({ msg: "all chatbot data", chatall });
                 }) 
                 .catch((err) => {
                     console.log(err);
                     return({
-                        msg: ">> Error while fetching user appointments",
+                        msg: ">> Error while fetching chats",
                         err,
                     });
                 });
@@ -47,7 +45,6 @@ module.exports = function (app, sequelize, passport) {
            app.post(
             "/chatbot/add",
              bodyParser.json(),
-          //  passport.authenticate("user_rule", { session: false }),
             async (req, res) => {
                 await Chatbot.create({
                     name: req.body.name,
@@ -55,14 +52,14 @@ module.exports = function (app, sequelize, passport) {
                     uid: req.body.uid,
                    
                 })
-                    .then((appo) => {
+                    .then((chat) => {
                         
-                        res.json ({ msg: "all user appointments", appo });
+                        res.json ({ msg: "all successfully added", chat });
                     }) 
                     .catch((err) => {
                         console.log(err);
                         return({
-                            msg: ">> Error while fetching user appointments",
+                            msg: ">> Error while adding chatbot data",
                             err,
                         });
                     });

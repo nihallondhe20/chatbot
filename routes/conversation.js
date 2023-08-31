@@ -27,14 +27,14 @@ console.log(conversation)
                 // where: { userId: req.agent_id },
                  include: [{ model: Chatbot, as: "chatbot" }],
             })
-                .then((appo) => {
+                .then((convo) => {
                     
-                    res.json ({ msg: "all user conversation", appo });
+                    res.json ({ msg: "all user conversation", convo });
                 }) 
                 .catch((err) => {
                     console.log(err);
                     return({
-                        msg: ">> Error while fetching user appointments",
+                        msg: ">> Error while fetching conversation",
                         err,
                     });
                 });
@@ -46,7 +46,6 @@ console.log(conversation)
            app.post(
             "/conversation/add",
              bodyParser.json(),
-          //  passport.authenticate("user_rule", { session: false }),
             async (req, res) => {
                 await conversation.create({
                     chid: req.body.chid,
@@ -56,14 +55,14 @@ console.log(conversation)
                     t3: req.body.t3
                    
                 })
-                    .then((appo) => {
+                    .then((convoadd) => {
                         
-                        res.json ({ msg: "all user appointments", appo });
+                        res.json ({ msg: "Successfully added conversation", convoadd });
                     }) 
                     .catch((err) => {
                         console.log(err);
                         return({
-                            msg: ">> Error while fetching user appointments",
+                            msg: ">> Error while adding conversation",
                             err,
                         });
                     });

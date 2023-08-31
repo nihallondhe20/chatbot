@@ -53,20 +53,24 @@ require("./config/passport")(passport, sequelize);
 
 
 
-
+//Intial app
 app.get("/", function (req, res, next) {
     res.json({ msg: "API Working" });
 });
 
 
 
-
+// routes
 require("../l1/routes/user")(app,sequelize,passport)
 require("../l1/routes/Chatbot")(app,sequelize)
 require("../l1/routes/conversation")(app,sequelize)
+
+// Error handling
 app.use(function fourOhFourHandler(req, res) {
     res.status(404).json("404");
 });
+
+
 app.use(function fiveHundredHandler(err, req, res, next) {
     console.error(err);
     res.status(500).json("500");

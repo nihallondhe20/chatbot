@@ -46,54 +46,29 @@ db.chatbot=require("./chatbot")(sequelize, Sequelize.DataTypes)
 db.Conversation=require("./conversation")(sequelize, Sequelize.DataTypes)
 
 
-
-
-// db.user.hasMany(db.chatbot,{
-//   foreignKey:"id",
-//    as:"chatbotid"
-// })
-
-// db.chatbot.belongsTo(db.user, {
-// 	foreignKey: "uid",
-// 	as: "userid",
-// });
-
 module.exports = db;
 
 
 db.user.hasMany(db.chatbot, {
-  foreignKey: 'id', // This is the foreign key in the Chatbot model that references the User model
-  as: 'chatbots', // Alias for the association
+  foreignKey: 'id', 
+  as: 'chatbots', 
 });
 
 db.chatbot.belongsTo(db.user, {
-  foreignKey: 'uid', // This is the foreign key in the Chatbot model that references the User model
-  as: 'user', // Alias for the association
+  foreignKey: 'uid', 
+  as: 'user', 
 });
 
 
-// db.chatbot.hasMany(db.conversation, {
-//   foreignKey: 'id',  
-//   as: 'conversation', // Alias for the association
-// });
-
-// db.conversation.belongsTo(db.chatbot, {
-//   foreignKey: 'chid', // This is the foreign key in the Chatbot model that references the User model
-//   as: 'chatbot', // Alias for the association
-// });
-
-// Define the 'hasMany' association from Chatbot to Conversation
-
-// Define the 'hasMany' association from Chatbot to Conversation
 db.chatbot.hasOne(db.Conversation, {
-  foreignKey: 'id', // This should be the foreign key in the Conversation table that references the Chatbot model
-  as: 'conversations', // Alias for the association
+  foreignKey: 'id', 
+  as: 'conversations', 
 });
 
-// Define the 'belongsTo' association from Conversation to Chatbot
+
 db.Conversation.belongsTo(db.chatbot, {
-  foreignKey: 'chid', // This should be the foreign key in the Conversation table that references the Chatbot model
-  as: 'chatbot', // Alias for the association
+  foreignKey: 'chid', 
+  as: 'chatbot', 
 });
 
 
