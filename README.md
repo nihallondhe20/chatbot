@@ -27,8 +27,8 @@ This is a Node.js backend application that manages conversions between users and
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/your-nodejs-backend.git
-   cd your-nodejs-backend
+   git clone https://github.com/nihallondhe20/chatbot.git
+   cd chatbot
 Install dependencies:
   npm i 
 Configure the database:
