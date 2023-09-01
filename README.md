@@ -36,7 +36,7 @@ Configure the database:
 Start the application:
    npm run dev
 
-The server will be running at http://localhost:3000.
+The server will be running at http://localhost:8080.
 
 Usage
 Describe how to use your application here. Provide examples of API requests and responses.
